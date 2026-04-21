@@ -16,25 +16,25 @@ function App() {
     sortBy: 'dueDate'
   });
 
-  // Adicionar tarefa
+  
   const handleAddTask = (task) => {
     setTasks([...tasks, task]);
   };
 
-  // Atualizar tarefa
+
   const handleUpdateTask = (updatedTask) => {
     setTasks(tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
     setEditingTask(null);
   };
 
-  // Excluir tarefa
+ 
   const handleDeleteTask = (taskId) => {
     if (window.confirm('Tem certeza que deseja excluir esta tarefa?')) {
       setTasks(tasks.filter((t) => t.id !== taskId));
     }
   };
 
-  // Alternar conclusão
+  
   const handleToggleComplete = (taskId) => {
     setTasks(
       tasks.map((t) =>
@@ -45,7 +45,7 @@ function App() {
     );
   };
 
-  // Atualizar progresso
+
   const handleUpdateProgress = (taskId, progress) => {
     setTasks(
       tasks.map((t) =>
@@ -56,7 +56,7 @@ function App() {
     );
   };
 
-  // Estatísticas
+ 
   const taskStats = useMemo(() => {
     return {
       total: tasks.length,
@@ -66,11 +66,11 @@ function App() {
     };
   }, [tasks]);
 
-  // Filtragem e ordenação
+
   const filteredTasks = useMemo(() => {
     let result = [...tasks];
 
-    // Filtrar por status
+
     if (filters.status === 'pending') {
       result = result.filter((t) => !t.completed);
     } else if (filters.status === 'completed') {
@@ -79,17 +79,17 @@ function App() {
       result = result.filter((t) => !t.completed && isOverdue(t.dueDate));
     }
 
-    // Filtrar por prioridade
+
     if (filters.priority !== 'all') {
       result = result.filter((t) => t.priority === filters.priority);
     }
 
-    // Filtrar por categoria
+  
     if (filters.category !== 'all') {
       result = result.filter((t) => t.category === filters.category);
     }
 
-    // Ordenar
+
     const priorityOrder = { high: 0, medium: 1, low: 2 };
     
     result.sort((a, b) => {
@@ -115,7 +115,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>📅 Agenda Inteligente</h1>
+        <h1> Agenda Inteligente</h1>
         <p>Organize suas tarefas e acompanhe seu progresso</p>
       </header>
 
