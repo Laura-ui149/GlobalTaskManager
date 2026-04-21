@@ -1,0 +1,171 @@
+.task-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  border-left: 4px solid #4a90d9;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.task-item.completed {
+  border-left-color: #4caf50;
+  opacity: 0.7;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-item.overdue {
+  border-left-color: #f44336;
+  background: #fff5f5;
+}
+
+.task-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px;
+  height: 24px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 24px;
+  width: 24px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  border: 2px solid #ddd;
+  transition: all 0.2s;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: #4a90d9;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.task-title-section {
+  flex: 1;
+}
+
+.task-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.task-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.priority, .category {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.task-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+  font-size: 1rem;
+}
+
+.btn-icon:hover {
+  background: #f0f0f0;
+}
+
+.btn-delete:hover {
+  background: #ffebee;
+}
+
+.task-description {
+  margin: 12px 0;
+  padding-left: 36px;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.task-footer {
+  margin-top: 16px;
+  padding-left: 36px;
+}
+
+.task-dates {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.overdue-text {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.task-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+}
